@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D1CD38E2298599B00F0284D /* AddRegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1CD38D2298599B00F0284D /* AddRegistrationTableViewController.swift */; };
 		EAEFA7DC2295310100387806 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAEFA7DB2295310100387806 /* AppDelegate.swift */; };
 		EAEFA7E12295310100387806 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAEFA7DF2295310100387806 /* Main.storyboard */; };
 		EAEFA7E32295310300387806 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EAEFA7E22295310300387806 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D1CD38D2298599B00F0284D /* AddRegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRegistrationTableViewController.swift; sourceTree = "<group>"; };
 		EAEFA7D82295310100387806 /* HotelManzana.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelManzana.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EAEFA7DB2295310100387806 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EAEFA7E02295310100387806 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -53,6 +55,7 @@
 			isa = PBXGroup;
 			children = (
 				EAEFA7DB2295310100387806 /* AppDelegate.swift */,
+				0D1CD38D2298599B00F0284D /* AddRegistrationTableViewController.swift */,
 				EAEFA7DF2295310100387806 /* Main.storyboard */,
 				EAEFA7E22295310300387806 /* Assets.xcassets */,
 				EAEFA7E42295310300387806 /* LaunchScreen.storyboard */,
@@ -132,6 +135,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D1CD38E2298599B00F0284D /* AddRegistrationTableViewController.swift in Sources */,
 				EAEFA7DC2295310100387806 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
