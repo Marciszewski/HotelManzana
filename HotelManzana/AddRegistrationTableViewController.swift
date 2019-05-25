@@ -8,8 +8,8 @@
 
 import UIKit
 
-class AddRegistrationTableViewController: UITableViewController {
-
+class AddRegistrationTableViewController: UITableViewController, SelectRoomTypeTableViewControllerDelegate {
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -26,6 +26,8 @@ class AddRegistrationTableViewController: UITableViewController {
     
     @IBOutlet weak var wifiSwitch: UISwitch!
     
+    @IBOutlet weak var roomTypeLabel: UILabel!
+    
     let checkInDatePickerCellIndexPath = IndexPath(row: 1, section: 1)
     let checkOutDatePickerCellIndexPath = IndexPath(row: 3, section: 1)
     
@@ -41,6 +43,8 @@ class AddRegistrationTableViewController: UITableViewController {
         }
     }
     
+    var roomType: RoomType?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -54,6 +58,7 @@ class AddRegistrationTableViewController: UITableViewController {
         checkInDatePicker.minimumDate = midnightToday
         checkInDatePicker.date = midnightToday
         
+        /*
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         
@@ -62,8 +67,10 @@ class AddRegistrationTableViewController: UITableViewController {
         checkOutDatePicker.minimumDate = checkInDatePicker.date.addingTimeInterval(86400)
         
         checkOutDateLabel.text = dateFormatter.string(from: checkOutDatePicker.date)
-        
+ */
+        updateDateViews()
         updateNumberOfGuests()
+        updateRoomType()
     }
     @IBAction func doneBarButtonTapped(_ sender: UIBarButtonItem) {
         let firstName = firstNameTextField.text ?? ""
@@ -78,6 +85,8 @@ class AddRegistrationTableViewController: UITableViewController {
         
         let hasWifi = wifiSwitch.isOn
         
+        let roomChoice = roomType?.name ?? "Not Set"
+        
         print("DONE TAPPED")
         print("firstName \(firstName)")
         print("lastName \(lastName)")
@@ -87,6 +96,7 @@ class AddRegistrationTableViewController: UITableViewController {
         print("numberOfAdults \(numberOfAdults)")
         print("numberOfchildren \(numberOfChildren)")
         print("wifi: \(hasWifi)")
+        print("roomType: \(roomChoice)")
     }
     
     func updateDateViews() {
@@ -168,5 +178,25 @@ class AddRegistrationTableViewController: UITableViewController {
     @IBAction func wifiSwitchChanged(_ sender: UISwitch) {
     }
     
+    func updateRoomType() {
+        if let roomType = roomType {
+            roomTypeLabel.text = roomType.name
+        } else {
+            roomTypeLabel.text = "Not Set"
+        }
+    }
+    
+    func didSelect(roomType: RoomType) {
+        self.roomType = roomType
+        updateRoomType()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SelectRoomType" {
+            let destinationViewController = segue.destination as? SelectRoomTypeTableViewController
+            destinationViewController?.delegate = self
+            destinationViewController?.roomType = roomType
+        }
+    }
 }
 
